@@ -1,26 +1,42 @@
 # modern-data-stack-lab
 > Hands-on implementations of modern data engineering patterns — Delta Lake, dbt, medallion architecture, and CI/CD pipelines on Azure.
 
-
 ---
 
 ## Overview
 
-<!-- What problem does this project solve? What will someone learn from it? -->
+A self-study project covering end-to-end modern data engineering on the lakehouse paradigm. Each module is a standalone mini-project that builds on the previous one, progressing from open table formats to full CI/CD deployment. Designed as a portfolio to demonstrate practical skills aligned with industry certifications.
 
 ## Architecture
 
-<!-- Insert medallion diagram here (Bronze / Silver / Gold) -->
+```
+┌─────────────────────────────────────────────────────────┐
+│                        GOLD                              │
+│         Business aggregates, KPI tables, star schema     │
+├─────────────────────────────────────────────────────────┤
+│                       SILVER                             │
+│       Cleaned, conformed, deduplicated, typed            │
+├─────────────────────────────────────────────────────────┤
+│                       BRONZE                             │
+│           Raw ingestion, append-only, no transforms      │
+└─────────────────────────────────────────────────────────┘
+         ▲                                    │
+         │   Ingestion (Auto Loader,          ▼
+         │    Spark Structured Streaming)   Serving
+         │                                 (BI / ML)
+    Raw Sources
+  (CSV, JSON, API)
+```
 
 ## Tech Stack
 
 | Layer | Tool |
 |-------|------|
-| Table format | |
-| Transformation | |
-| Orchestration | |
-| Warehouse | |
-| BI | |
+| Table format | Delta Lake, Apache Iceberg |
+| Transformation | dbt-core, PySpark |
+| Orchestration | Databricks Workflows, GitHub Actions |
+| Warehouse | Databricks (Unity Catalog), DuckDB (local) |
+| BI | Power BI / Metabase (optional) |
 
 ---
 
@@ -28,13 +44,13 @@
 
 ```
 modern-data-stack-lab/
-├── 01-delta-lake/
-├── 02-medallion/
-├── 03-dbt-project/
-├── 04-databricks/
-├── 05-iceberg/
-├── 06-cicd/
-├── docs/
+├── 01-delta-lake/        # Delta Lake fundamentals
+├── 02-medallion/         # Bronze → Silver → Gold pipeline
+├── 03-dbt-project/       # dbt transformations & testing
+├── 04-databricks/        # Databricks platform features
+├── 05-iceberg/           # Apache Iceberg exploration
+├── 06-cicd/              # CI/CD for data pipelines
+├── docs/                 # Architecture diagrams & notes
 └── README.md
 ```
 
@@ -43,34 +59,37 @@ modern-data-stack-lab/
 ## Modules
 
 ### 01 — Delta Lake & Open Table Formats
-<!-- What you built, what you learned -->
+ACID transactions, time travel, schema evolution, MERGE operations with PySpark + Delta Lake.
 
 ### 02 — Medallion Architecture
-<!-- What you built, what you learned -->
+End-to-end Bronze → Silver → Gold pipeline demonstrating layered data quality progression.
 
 ### 03 — dbt Project
-<!-- DAG screenshot, model count, test coverage -->
+Modular SQL transformations with staging/intermediate/mart layers, tests, docs, and incremental models.
 
 ### 04 — Databricks
-<!-- What you built, what you learned -->
+Unity Catalog, Auto Loader, Structured Streaming, and Workflow orchestration on the Lakehouse platform.
 
 ### 05 — Iceberg
-<!-- What you built, what you learned -->
+Apache Iceberg table format — partition evolution, time travel, hidden partitioning, and catalog options.
 
 ### 06 — CI/CD
-<!-- Pipeline badge, workflow summary -->
+GitHub Actions for dbt, sqlfluff linting, pre-commit hooks, and environment promotion strategies.
 
 ---
 
 ## Key Concepts Demonstrated
 
-- 
-- 
-- 
+- ACID transactions on object storage (Delta Lake & Iceberg)
+- Medallion architecture (Bronze/Silver/Gold) for data quality layering
+- dbt-driven transformations with testing, documentation, and CI
+- Incremental processing & idempotent pipelines
+- Unity Catalog governance and 3-level namespace
+- CI/CD automation for analytics engineering workflows
 
 ## Results / Takeaways
 
-<!-- What worked, what surprised you, what you'd do differently -->
+_To be updated as modules are completed._
 
 ---
 
@@ -78,12 +97,15 @@ modern-data-stack-lab/
 
 ### Prerequisites
 ```bash
-# list dependencies
+python 3.9+
+pip install pyspark delta-spark dbt-core dbt-duckdb sqlfluff pre-commit
 ```
 
 ### Setup
 ```bash
-# clone, install, configure
+git clone https://github.com/yotsakornken/modern-data-stack-lab.git
+cd modern-data-stack-lab
+pip install -r requirements.txt  # (coming soon)
 ```
 
 ---
@@ -98,8 +120,11 @@ modern-data-stack-lab/
 
 ## References
 
-- 
-- 
+- [Delta Lake Docs](https://docs.delta.io/latest/index.html)
+- [Apache Iceberg Docs](https://iceberg.apache.org/docs/latest/)
+- [dbt Documentation](https://docs.getdbt.com/)
+- [Databricks Academy](https://www.databricks.com/learn)
+- [Medallion Architecture](https://www.databricks.com/glossary/medallion-architecture)
 
 ---
 

@@ -1,0 +1,27 @@
+name: SQL Lint
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.sql'
+
+jobs:
+  sqlfluff-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install sqlfluff
+        run: pip install sqlfluff sqlfluff-templater-dbt dbt-core dbt-duckdb
+
+      - name: Lint SQL files
+        working-directory: ./03-dbt-project
+        run: sqlfluff lint models/ --dialect duckdb

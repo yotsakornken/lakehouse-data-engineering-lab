@@ -1,0 +1,37 @@
+# Delta Lake generated tables
+**/delta-table/
+**/delta-merge/
+**/delta-optimize/
+**/delta-timetravel/
+**/delta-schema-evolution/
+**/lakehouse/
+
+# Iceberg generated data
+**/iceberg-warehouse/
+**/iceberg_catalog.db
+
+# dbt
+03-dbt-project/target/
+03-dbt-project/dbt_packages/
+03-dbt-project/logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Spark
+*.jar
+spark-warehouse/
+derby.log
+metastore_db/

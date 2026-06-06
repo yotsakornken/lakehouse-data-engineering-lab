@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: int_orders_enriched
+    description: "Orders enriched with product details and profit calculations"
+    columns:
+      - name: order_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+      - name: gross_profit
+        description: "Revenue minus cost"

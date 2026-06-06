@@ -1,0 +1,37 @@
+name: Python Tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '01-delta-lake/**'
+      - '02-medallion/**'
+      - '05-iceberg/**'
+
+jobs:
+  python-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install deltalake pandas numpy
+          pip install "pyiceberg[sql-sqlite,pyarrow,pyiceberg-core]"
+
+      - name: Run Delta Lake basics
+        working-directory: ./01-delta-lake
+        run: python delta_basics.py
+
+      - name: Run Medallion pipeline
+        run: |
+          cd 02-medallion/bronze && python ingest_raw.py
+          cd ../../02-medallion/silver && python clean_transform.py
+          cd ../../02-medallion/gold && python aggregate.py

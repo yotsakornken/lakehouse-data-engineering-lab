@@ -1,0 +1,21 @@
+order_id,customer_id,product,quantity,unit_price,order_date,status
+1001,C001,Laptop,1,45000,2024-01-15,completed
+1002,C002,Mouse,2,590,2024-01-15,completed
+1003,C001,Keyboard,1,1890,2024-01-16,completed
+1004,C003,Monitor,1,12500,2024-01-16,pending
+1005,C002,USB Cable,3,190,2024-01-17,completed
+1006,C004,Laptop,1,52000,2024-01-17,cancelled
+1007,C005,Headset,2,2490,2024-01-18,completed
+1008,C003,Mouse,1,590,2024-01-18,completed
+1009,C001,Webcam,1,1990,2024-01-19,pending
+1010,C006,Laptop,1,48000,2024-01-19,completed
+1011,C002,Monitor,2,12500,2024-01-20,completed
+1012,C007,Keyboard,3,1890,2024-01-20,completed
+1013,C004,Headset,1,2490,2024-01-21,completed
+1014,C005,USB Cable,5,190,2024-01-21,completed
+1015,C008,,1,0,2024-01-22,completed
+1016,C006,Mouse,NULL,590,2024-01-22,completed
+1017,C001,Laptop,1,45000,invalid_date,completed
+1018,C009,Keyboard,2,1890,2024-01-23,
+1019,C003,Monitor,1,12500,2024-01-23,completed
+1020,C010,Laptop,1,45000,2024-01-24,completed

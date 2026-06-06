@@ -1,0 +1,11 @@
+customer_id,name,email,city,registered_date
+C001,Alice Johnson,alice@email.com,Bangkok,2023-06-15
+C002,Bob Smith,bob@email.com,Chiang Mai,2023-07-20
+C003,Charlie Brown,charlie@email.com,Bangkok,2023-08-10
+C004,Diana Prince,diana@email.com,Phuket,2023-09-01
+C005,Eve Wilson,eve@email.com,Bangkok,2023-10-12
+C006,Frank Miller,frank@email.com,Chiang Mai,2023-11-05
+C007,Grace Lee,grace@email.com,Pattaya,2023-12-20
+C008,Henry Ford,,Bangkok,2024-01-02
+C009,Ivy Chen,ivy@email.com,,2024-01-10
+C010,Jack Ma,jack@email.com,Bangkok,2024-01-15

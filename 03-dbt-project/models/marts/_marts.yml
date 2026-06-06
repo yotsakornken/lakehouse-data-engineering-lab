@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Fact table - completed orders with revenue, cost, and profit"
+    columns:
+      - name: order_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+      - name: profit_margin
+        description: "Profit as percentage of revenue"
+
+  - name: dim_customers
+    description: "Customer dimension with lifetime metrics and tier"
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_tier
+        description: "Gold/Silver/Bronze based on lifetime revenue"
+        data_tests:
+          - accepted_values:
+              values: ['gold', 'silver', 'bronze']
+
+  - name: dim_products
+    description: "Product dimension with sales performance"
+    columns:
+      - name: product_name
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
