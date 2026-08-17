@@ -1,4 +1,4 @@
-# modern-data-stack-lab
+# lakehouse-data-engineering-lab
 > Hands-on implementations of modern data engineering patterns — Delta Lake, dbt, medallion architecture, and CI/CD pipelines on Azure.
 
 ---
@@ -43,7 +43,7 @@ A self-study project covering end-to-end modern data engineering on the lakehous
 ## Project Structure
 
 ```
-modern-data-stack-lab/
+lakehouse-data-engineering-lab/
 ├── 01-delta-lake/        # Delta Lake fundamentals
 ├── 02-medallion/         # Bronze → Silver → Gold pipeline
 ├── 03-dbt-project/       # dbt transformations & testing
@@ -103,8 +103,8 @@ pip install pyspark delta-spark dbt-core dbt-duckdb sqlfluff pre-commit
 
 ### Setup
 ```bash
-git clone https://github.com/yotsakornken/modern-data-stack-lab.git
-cd modern-data-stack-lab
+git clone https://github.com/yotsakornken/lakehouse-data-engineering-lab.git
+cd lakehouse-data-engineering-lab
 pip install -r requirements.txt  # (coming soon)
 ```
 
